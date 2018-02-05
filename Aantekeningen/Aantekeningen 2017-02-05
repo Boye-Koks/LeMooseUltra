@@ -1,0 +1,65 @@
+#### Pipeline voor Neural network
+
+1.  load data
+2.  preprocess data
+3.  generate more data
+4.  train model
+
+##### Cross validation
+                        training
+            training <
+    data <              validation
+            test
+
+Splits je training set in training en validation, gebruik de validation subset om je model te testen, doe dit k keer telkens met een nieuwe validation subset (en dus een andere training subset).
+
+#### Naam groep
+???
+
+#### Iedereen eigen model
+Gebruik hiervoor MNIST dataset op Kaggle
+-> Digit recognizer competition
+
+#### Neurale Netwerken
+- Neurale Netwerken (NN)
+- Convolutional NN
+- Recurrent NN
+- Gradient Boosting
+- Random Forest
+- (SVM)
+
+
+##### NN uitleg
+Dataset bestaat uit plaatjes van cijfer, 28x28. Getransformeerd naar 784x1
+
+Inputvector is 784x1
+Outputvector is 10x1, want er zijn 10 cijfers (0-9).
+Hidden layers ertussen, ertussen zitten weightmatrices.
+
+NN kan:
+* Breed -> Makkelijk!
+* Diep  -> Minder rekenwerk
+* Breed en diep -> Alleen als je Google bent
+
+##### Convolutional NN uitleg
+Hetzelfde proces als een NN, maar je gebruikt een filtermatrix, dit leidt tot een gefilterde representatie. Je gebruikt meerdere filters, dus je krijgt veel representaties. Dit leidt tot een hele lange hidden vector die veel features codeert.
+
+##### Recurrent NN
+Input in een vector, de output vermenigvuldig je met nieuwe input en stop je weer terug erin als input. Dit herhaal je x keer en dan lees je de output.
+
+                     _____
+                     |   |
+    Input   >----|---| v |---|----> Output
+                 |   |___|   |
+                 |           |
+                 |--repeat---|
+                 |
+                 |
+                 ^
+          Voeg nieuwe data toe
+
+##### Gradient Boosting
+Neem heel veel waardeloze netwerken, die samen leiden to een heel goed resultaat.
+
+##### Random Forest
+Genereer heel veel decision trees, middel het resultaat. Je hebt nu een goed model. Dit werkt altijd, in tegenstelling tot NN.
