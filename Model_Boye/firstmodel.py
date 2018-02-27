@@ -21,9 +21,7 @@ def create_model(nodelist):
 trn_data = pd.read_csv("Model_Boye/train.csv")
 tst_data = pd.read_csv("Model_Boye/test.csv")
 trn_labels = trn_data['label'].values
-trn_img = 1/255 * trn_data.drop(['label'], axis=1).values
-
-# TODO convert trn_labels to one hot encoding
+trn_img = 1./255 * trn_data.drop(['label'], axis=1).values # Dividing by 255 to normalize color values
 
 label_encoder = LabelEncoder()
 integer_encoded = label_encoder.fit_transform(trn_labels)
@@ -34,6 +32,8 @@ onehot_encoded = onehot_encoder.fit_transform(integer_encoded)
 
 trn_enc_labels = onehot_encoded
 
-new_model = create_model([10, 10])
+new_model = create_model([100, 10])
 
-new_model.fit(x=trn_img, y=trn_enc_labels, epochs=10, batch_size=128, verbose=2)
+new_model.fit(x=trn_img, y=trn_enc_labels, epochs=10, batch_size=32, verbose=2)
+
+# prediction = new_model.predict(x=tst_data, batch_size=32, verbose=2)
